@@ -67,6 +67,7 @@ TARGET_PLATFORM_TO_DIGIT = {
     'iOS': '6',
     'iOS_sim': '6',
     'Wasm': '7',
+    'FreeBSD': '8',
 }
 
 VERSION_PROPERTIES = [

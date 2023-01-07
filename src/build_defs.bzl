@@ -376,6 +376,7 @@ def select_mozc(
         macos = None,
         oss_android = None,
         oss_linux = None,
+        oss_freebsd = None,
         oss_macos = None,
         wasm = None,
         windows = None):
@@ -399,6 +400,7 @@ def select_mozc(
       macos: value for macOS build.
       oss_android: value for OSS Android build.
       oss_linux: value for OSS Linux build.
+      oss_freebsd: value for OSS FreeBSD build.
       oss_macos: value for OSS macOS build.
       wasm: value for wasm build.
       windows: value for Windows build. (placeholder)
@@ -416,6 +418,7 @@ def select_mozc(
         "//tools/cc_target_os:linux": _get_value([linux, client, default]),
         "//tools/cc_target_os:oss_android": _get_value([oss_android, oss, android, client, default]),
         "//tools/cc_target_os:oss_linux": _get_value([oss_linux, oss, linux, client, default]),
+        "//tools/cc_target_os:oss_freebsd": _get_value([oss_freebsd, oss, client, default]),
         "//tools/cc_target_os:oss_macos": _get_value([oss_macos, oss, macos, ios, client, default]),
         "//conditions:default": default,
     })

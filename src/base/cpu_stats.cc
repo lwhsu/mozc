@@ -124,13 +124,13 @@ float CPUStats::GetSystemCPULoad() {
 
 #endif  // __APPLE__
 
-#if defined(OS_LINUX) || defined(OS_ANDROID) || defined(OS_WASM)
+#if defined(OS_LINUX) || defined(OS_ANDROID) || defined(OS_WASM) || defined(OS_FREEBSD)
   // NOT IMPLEMENTED
   // TODO(taku): implement Linux version
   // can take the info from /proc/stats
   const uint64_t total_times = 0;
   const uint64_t cpu_times = 0;
-#endif  // OS_LINUX || OS_ANDROID || OS_WASM
+#endif  // OS_LINUX || OS_ANDROID || OS_WASM || OS_FREEBSD
 
   return UpdateCPULoad(total_times, cpu_times, &prev_system_total_times_,
                        &prev_system_cpu_times_);
@@ -177,11 +177,11 @@ float CPUStats::GetCurrentProcessCPULoad() {
                            TimeValueTToInt64(task_times_info.system_time);
 #endif  // __APPLE__
 
-#if defined(OS_LINUX) || defined(OS_ANDROID) || defined(OS_WASM)
+#if defined(OS_LINUX) || defined(OS_ANDROID) || defined(OS_WASM) || defined(OS_FREEBSD)
   // not implemented
   const uint64_t total_times = 0;
   const uint64_t cpu_times = 0;
-#endif  // OS_LINUX || OS_ANDROID || OS_WASM
+#endif  // OS_LINUX || OS_ANDROID || OS_WASM || OS_FREEBSD
 
   return UpdateCPULoad(total_times, cpu_times,
                        &prev_current_process_total_times_,
@@ -208,9 +208,9 @@ size_t CPUStats::GetNumberOfProcessors() const {
   return static_cast<size_t>(basic_info.avail_cpus);
 #endif  // __APPLE__
 
-#if defined(OS_LINUX) || defined(OS_ANDROID) || defined(OS_WASM)
+#if defined(OS_LINUX) || defined(OS_ANDROID) || defined(OS_WASM) || defined(OS_FREEBSD)
   // Not implemented
   return 1;
-#endif  // OS_LINUX
+#endif  // OS_LINUX || OS_ANDROID || OS_WASM || OS_FREEBSD
 }
 }  // namespace mozc

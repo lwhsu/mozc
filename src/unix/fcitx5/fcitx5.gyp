@@ -101,6 +101,7 @@
       'ldflags': [
         '-Wl,--no-undefined',
         '-Wl,--as-needed',
+        '-lm',
       ],
       'defines': [
         'FCITX_GETTEXT_DOMAIN="fcitx5-mozc"',

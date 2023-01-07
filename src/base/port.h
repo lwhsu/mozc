@@ -56,6 +56,10 @@
 #endif  // !OS_ANDROID
 #endif  // OS_LINUX
 
+#ifdef OS_FREEBSD
+#define MOZC_OS_DEFINED
+#endif  // OS_FREEBSD
+
 #ifdef OS_IOS
 #define MOZC_OS_DEFINED
 #endif  // OS_IOS

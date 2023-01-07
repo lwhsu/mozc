@@ -8,10 +8,15 @@ build --host_copt "-funsigned-char"
 build --host_copt "-Wno-sign-compare"
 build --host_copt "-Wno-char-subscripts"
 build --objccopt "-fsigned-char"
+build --host_linkopt="-lm"
 
 # Linux
 build:linux --define TARGET=oss_linux --copt "-fPIC"
 build:oss_linux --define TARGET=oss_linux --copt "-fPIC"
+
+# FreeBSD
+build:freebsd --define TARGET=oss_freebsd --copt "-fPIC" --linkopt="-lm"
+build:oss_freebsd --define TARGET=oss_freebsd --copt "-fPIC" --linkopt="-lm"
 
 # macOS
 build:macos --define TARGET=oss_macos

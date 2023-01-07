@@ -94,6 +94,10 @@ cc_library(
             "MOZC_BUILD",
             "OS_LINUX",
         ],
+        oss_freebsd = [
+            "MOZC_BUILD",
+            "OS_FREEBSD",
+        ],
         oss_macos = [
             "MOZC_BUILD",
         ],
@@ -141,6 +145,7 @@ filegroup(
         ],
         oss_android = ["//android/jni:mozc_lib"],
         oss_linux = ["//unix:package"],
+        oss_freebsd = ["//unix:package"],
         oss_macos = ["//mac:installer_oss_macos"],
     ),
 )

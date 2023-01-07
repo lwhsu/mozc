@@ -96,6 +96,12 @@ pkg_config_repository(
   packages = ["Qt5Core", "Qt5Gui", "Qt5Widgets"],
 )
 
+# Qt for FreeBSD
+pkg_config_repository(
+  name = "qt_freebsd",
+  packages = ["Qt5Core", "Qt5Gui", "Qt5Widgets"],
+)
+
 # Qt for macOS
 load("//:qt_mac_repository.bzl", "qt_mac_repository")
 qt_mac_repository(

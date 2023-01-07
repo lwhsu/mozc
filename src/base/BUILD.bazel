@@ -234,6 +234,12 @@ cc_library_mozc(
             ":singleton",
             "@com_google_absl//absl/strings",
         ],
+        oss_freebsd= [
+            ":clock",
+            ":const",
+            ":singleton",
+            "@com_google_absl//absl/strings",
+        ],
         wasm = [
             ":clock",
             ":const",
@@ -1001,7 +1007,7 @@ genrule(
         "$(location //build_tools:mozc_version)" +
         ' --template_path="$(location //data/version:mozc_version_template.bzl)"' +
         ' --output="$(OUTS)"' +
-        " --target_platform=" + TARGET_PLATFORM
+        " --target_platform=" + "FreeBSD"
     ),
     exec_tools = ["//build_tools:mozc_version"],
     visibility = ["//:__subpackages__"],
