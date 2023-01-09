@@ -9,14 +9,21 @@ build --host_copt "-Wno-sign-compare"
 build --host_copt "-Wno-char-subscripts"
 build --objccopt "-fsigned-char"
 build --host_linkopt="-lm"
+build --host_linkopt="-L/usr/local/lib"
+build --copt "-I/usr/local/include"
+build --copt "-I/usr/local/include/Fcitx5/Utils"
+build --copt "-I/usr/local/include/Fcitx5/Core"
+build --copt "-I/usr/local/include/Fcitx5/Config"
+build --copt "-I/usr/local/include/Fcitx5/Module"
+build --linkopt="-L/usr/local/lib"
 
 # Linux
 build:linux --define TARGET=oss_linux --copt "-fPIC"
 build:oss_linux --define TARGET=oss_linux --copt "-fPIC"
 
 # FreeBSD
-build:freebsd --define TARGET=oss_freebsd --copt "-fPIC" --linkopt="-lm"
-build:oss_freebsd --define TARGET=oss_freebsd --copt "-fPIC" --linkopt="-lm"
+build:freebsd --define TARGET=oss_freebsd --copt "-fPIC" --linkopt="-lm" --linkopt="-L/usr/local/lib"
+build:oss_freebsd --define TARGET=oss_freebsd --copt "-fPIC" --linkopt="-lm" --linkopt="-L/usr/local/lib"
 
 # macOS
 build:macos --define TARGET=oss_macos
